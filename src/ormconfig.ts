@@ -21,6 +21,9 @@ const ormConfig: TypeOrmModuleOptions = {
     migrationsDir: 'src/migration',
     subscribersDir: 'src/observers/subscribers',
   },
+  ssl: {
+    rejectUnauthorized: false,
+  }
 };
 
 export = ormConfig;
