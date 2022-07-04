@@ -8,11 +8,9 @@ export class CreateHistoryDto {
   search: string;
 
   @ApiProperty()
-  @IsNotEmpty()
   provider: string;
 
   @ApiProperty()
-  @IsNotEmpty()
   response: string;
 
 }
