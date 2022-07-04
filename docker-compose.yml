@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  api:
+    container_name: grupo_5_api
+    build:
+      context: .
+      target: development
+    env_file: .env
+    networks:
+      - webnet
+    ports:
+      - '8012:8012'
+      - '9240:9240'
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    environment:
+      DEBUG: '*'
+      NODE_ENV: 'development'
+    command: npm run start:debug
+
+  postgres:
+    container_name: postgres_db_grupo_5
+    image: postgres:10.14
+    networks:
+      - webnet
+    restart: always
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+      PG_DATA: /var/lib/postgresql/data
+    volumes:
+      - ./tmp/db_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+networks:
+  webnet:
