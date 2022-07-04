@@ -37,9 +37,10 @@ import search from 'src/common/api/youtube';
       @Body() createHistoryDto: CreateHistoryDto
     ): Promise<History> {
       const result = await search(createHistoryDto.search);
-      console.log(`RESULT?`, result);
+      createHistoryDto.provider = 'YOUTUBE';
+      createHistoryDto.response = result;
+      await this.historyService.create(createHistoryDto);
       return result;
-      //return await this.historyService.create(createHistoryDto);
     }
 
     @ApiOperation({ summary: 'Update History Search' })
