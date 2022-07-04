@@ -11,7 +11,7 @@ import 'dotenv/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const apiPort = +process.env.API_PORT || 3000;
+  const apiPort = +process.env.PORT || 5000;
   const apiPrefix = '/api';
   const apiVersion = 'v1';
 
