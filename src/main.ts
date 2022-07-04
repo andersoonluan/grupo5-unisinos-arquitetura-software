@@ -1,5 +1,4 @@
 // Initialize DD first
-import './common/utils/dd-tracer.util';
 import { RequestMethod, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
