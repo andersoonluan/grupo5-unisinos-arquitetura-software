@@ -22,7 +22,7 @@ const ormConfig: TypeOrmModuleOptions = {
     subscribersDir: 'src/observers/subscribers',
   },
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: false
   }
 };
 

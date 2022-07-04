@@ -20,6 +20,7 @@ import {
   import { EntityNotFoundError } from 'typeorm';
   import { Paginate, Paginated, PaginateQuery } from 'nestjs-paginate';
   import { UpdateHistoryDto } from './dto/update-history.dto';
+import search from 'src/common/api/youtube';
 
   @ApiTags('searches')
   @Controller('searches')
@@ -35,7 +36,10 @@ import {
     async create(
       @Body() createHistoryDto: CreateHistoryDto
     ): Promise<History> {
-      return await this.historyService.create(createHistoryDto);
+      const result = await search(createHistoryDto.search);
+      console.log(`RESULT?`, result);
+      return result;
+      //return await this.historyService.create(createHistoryDto);
     }
 
     @ApiOperation({ summary: 'Update History Search' })
