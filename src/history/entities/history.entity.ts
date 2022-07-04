@@ -16,7 +16,7 @@ export class History {
   @Column({ name: 'provider', type: 'text' })
   provider: string;
 
-  @Column({ name: 'provider', type: 'json' })
+  @Column({ name: 'response', type: 'json' })
   response: string;
 
   @Column({
