@@ -54,4 +54,4 @@ http://localhost:8011/api/
 
 #### Unit tests
 
-At the project root folder, run `npm run test` in terminal
+At the project root folder, run `npm run test` in terminal.
