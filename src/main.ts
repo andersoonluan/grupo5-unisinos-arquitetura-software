@@ -30,6 +30,8 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ErrorsInterceptor());
   app.use(json({ limit: '50mb' }));
   app.use(urlencoded({ limit: '50mb', extended: true }));
+  app.enableCors();
+
 
   const options = new DocumentBuilder()
     .addBearerAuth()
